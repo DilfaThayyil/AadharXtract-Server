@@ -87,10 +87,3 @@ Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new featu
 📄 License
 This project is open-source under the MIT License.
 
----
-
-Let me know if you'd like:
-- A `.gitignore` for the backend  
-- `vercel.json` / `render.yaml` deployment guide  
-- Swagger or Postman API doc  
-Happy to help!
