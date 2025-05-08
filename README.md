@@ -32,20 +32,12 @@ The backend receives Aadhaar card images (front and back), processes them throug
 ```bash
 git clone https://github.com/DilfaThayyil/aadharXtract-Server.git
 cd aadharXtract-Server
+
 2. Install Dependencies
-bash
-Copy
-Edit
 npm install
+```
 3. Set Up Your .env File
 Create a .env in the root folder:
-
-env
-Copy
-Edit
-PORT=5000
-GOOGLE_APPLICATION_CREDENTIALS=./path-to-your-service-account.json
-GOOGLE_APPLICATION_CREDENTIALS should point to the service account key file from Google Cloud.
 
 🛠 Google Cloud Setup
 Go to Google Cloud Console
@@ -72,30 +64,11 @@ backImage: Aadhaar back image file (optional but recommended)
 
 Response:
 
-json
-Copy
-Edit
 {
   "frontData": { ...extractedText },
   "backData": { ...extractedText }
 }
-📁 Project Structure
-bash
-Copy
-Edit
-aadhaar-ocr-backend/
-├── controllers/
-│   └── ocrController.js
-├── routes/
-│   └── ocrRoutes.js
-├── services/
-│   └── googleVision.js
-├── uploads/
-├── .env
-├── app.js
-└── package.json
-💡 Notes
-Accepts only image files (JPG, PNG)
+
 
 Frontend must send valid image data via multipart/form-data
 
@@ -113,10 +86,6 @@ Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new featu
 
 📄 License
 This project is open-source under the MIT License.
-
-yaml
-Copy
-Edit
 
 ---
 
