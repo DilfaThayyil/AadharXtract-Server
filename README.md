@@ -72,18 +72,13 @@ frontImage: Aadhaar front image file
 backImage: Aadhaar back image file (optional but recommended)
 
 Response:
-
-json
-Copy
-Edit
 {
   "frontData": { ...extractedText },
   "backData": { ...extractedText }
 }
+
 📁 Project Structure
-bash
-Copy
-Edit
+
 aadhaar-ocr-backend/
 ├── controllers/
 │   └── ocrController.js
@@ -114,7 +109,3 @@ Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new featu
 
 📄 License
 This project is open-source under the MIT License.
-
-yaml
-Copy
-Edit
