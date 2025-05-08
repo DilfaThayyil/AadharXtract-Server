@@ -40,14 +40,11 @@ npm install
 Create a .env in the root folder:
 
 🛠 Google Cloud Setup
+
 Go to Google Cloud Console
-
 Enable the Vision API
-
 Create a Service Account
-
 Generate and download the JSON key
-
 Place it in your project directory and reference it in your .env
 
 🧪 API Usage
@@ -59,7 +56,6 @@ Content-Type: multipart/form-data
 Fields:
 
 frontImage: Aadhaar front image file
-
 backImage: Aadhaar back image file (optional but recommended)
 
 Response:
@@ -69,21 +65,13 @@ Response:
   "backData": { ...extractedText }
 }
 
-
 Frontend must send valid image data via multipart/form-data
-
 Make sure your Google Cloud credentials are not pushed to GitHub!
 
 🛡 Security Tips
 Sanitize file names & validate file types
-
 Limit file size uploads using multer
-
 Always keep .env and service account JSON in .gitignore
 
 📬 Feedback & Contributions
 Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new features, or documentation updates — it's all welcome 🙌
-
-📄 License
-This project is open-source under the MIT License.
-
