@@ -48,7 +48,9 @@ Generate and download the JSON key
 Place it in your project directory and reference it in your .env
 
 🧪 API Usage
+
 📤 POST /api/ocr
+
 Request:
 
 Content-Type: multipart/form-data
@@ -69,9 +71,11 @@ Frontend must send valid image data via multipart/form-data
 Make sure your Google Cloud credentials are not pushed to GitHub!
 
 🛡 Security Tips
+
 Sanitize file names & validate file types
 Limit file size uploads using multer
 Always keep .env and service account JSON in .gitignore
 
 📬 Feedback & Contributions
+
 Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new features, or documentation updates — it's all welcome 🙌
