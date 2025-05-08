@@ -46,7 +46,6 @@ Edit
 PORT=5000
 GOOGLE_APPLICATION_CREDENTIALS=./path-to-your-service-account.json
 GOOGLE_APPLICATION_CREDENTIALS should point to the service account key file from Google Cloud.
-```
 
 🛠 Google Cloud Setup
 Go to Google Cloud Console
@@ -72,13 +71,18 @@ frontImage: Aadhaar front image file
 backImage: Aadhaar back image file (optional but recommended)
 
 Response:
+
+json
+Copy
+Edit
 {
   "frontData": { ...extractedText },
   "backData": { ...extractedText }
 }
-
 📁 Project Structure
-
+bash
+Copy
+Edit
 aadhaar-ocr-backend/
 ├── controllers/
 │   └── ocrController.js
@@ -109,3 +113,15 @@ Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new featu
 
 📄 License
 This project is open-source under the MIT License.
+
+yaml
+Copy
+Edit
+
+---
+
+Let me know if you'd like:
+- A `.gitignore` for the backend  
+- `vercel.json` / `render.yaml` deployment guide  
+- Swagger or Postman API doc  
+Happy to help!
