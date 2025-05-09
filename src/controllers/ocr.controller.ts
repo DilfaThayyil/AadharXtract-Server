@@ -22,12 +22,12 @@ export const processAadhaar = async (req: Request, res: Response): Promise<void>
 
     const [frontResult] = await client.textDetection({ image: { content: frontBuffer } });
     const [backResult] = await client.textDetection({ image: { content: backBuffer } });
-
     const frontText = frontResult.fullTextAnnotation?.text || '';
     const backText = backResult.fullTextAnnotation?.text || '';
-
+    console.log("*******fronteText******** : ",frontText)
+    console.log("*******backText********* : ",backText)
     const data = extractAadhaarDetails(frontText, backText);
-
+console.log("-----------------data--------------------",data)
     const frontBase64 = `data:image/png;base64,${frontBuffer.toString('base64')}`;
     const backBase64 = `data:image/png;base64,${backBuffer.toString('base64')}`;
 
