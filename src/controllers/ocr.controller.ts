@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import vision from '@google-cloud/vision';
 import { extractAadhaarDetails } from '../utils/extractAadhar';
 import { GOOGLE_APPLICATION_CREDENTIALS } from '../config/env';
+import { HttpStatusCode } from '../constants/httpStatusCode';
+import { messageConstants } from '../constants/messageContants';
 
 const credentials = JSON.parse(GOOGLE_APPLICATION_CREDENTIALS as string);
 
@@ -17,7 +19,7 @@ export const processAadhaar = async (req: Request, res: Response): Promise<void>
     };
 
     if (!files.front || !files.back) {
-      res.status(400).json({ success: false, message: 'Both front and back images are required.' });
+      res.status(HttpStatusCode.BAD_REQUEST).json({ success: false, message: messageConstants.ERROR });
       return;
     }
 
@@ -28,16 +30,13 @@ export const processAadhaar = async (req: Request, res: Response): Promise<void>
     const [backResult] = await client.textDetection({ image: { content: backBuffer } });
     const frontText = frontResult.fullTextAnnotation?.text || '';
     const backText = backResult.fullTextAnnotation?.text || '';
-    console.log("*******fronteText******** : ",frontText)
-    console.log("*******backText********* : ",backText)
     const data = extractAadhaarDetails(frontText, backText);
-console.log("-----------------data--------------------",data)
     const frontBase64 = `data:image/png;base64,${frontBuffer.toString('base64')}`;
     const backBase64 = `data:image/png;base64,${backBuffer.toString('base64')}`;
 
     res.json({
       success: true,
-      message: 'Aadhaar data extracted successfully',
+      message: messageConstants.SUCCESS,
       data: {
         ...data,
         frontImage: frontBase64,
@@ -46,6 +45,6 @@ console.log("-----------------data--------------------",data)
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Error processing Aadhaar images' });
+    res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({ success: false, message: messageConstants.FAILURE });
   }
 };
