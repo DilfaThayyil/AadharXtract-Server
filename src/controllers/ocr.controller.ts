@@ -1,9 +1,13 @@
 import { Request, Response } from 'express';
 import vision from '@google-cloud/vision';
 import { extractAadhaarDetails } from '../utils/extractAadhar';
+import { GOOGLE_APPLICATION_CREDENTIALS } from '../config/env';
 
+const credentials = JSON.parse(GOOGLE_APPLICATION_CREDENTIALS as string);
 
-const client = new vision.ImageAnnotatorClient();
+const client = new vision.ImageAnnotatorClient({
+  credentials
+});
 
 export const processAadhaar = async (req: Request, res: Response): Promise<void> => {
   try {
