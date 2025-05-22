@@ -1,15 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import ocrRoutes from './routes/ocr.routes';
+import ocrRoutes from './interfaces/routes/ocr.routes';
 import cors from "cors";
-import { BACKENDURL, PORT } from './config/env';
+import { BACKENDURL, FRONTENTURL, PORT } from './config/env';
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors({
-    origin: ['https://aadharxtract.vercel.app','https://aadharxtract.dilfa.site'],
+    origin: FRONTENTURL,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
