@@ -1,6 +1,6 @@
-import { IOcrService } from '../../infrastructure/interfaces/IOcrServices';
+import { IOcrService } from '../../infrastructure/interfaces/IOcrService';
 import { extractAadhaarDetails } from '../../utils/extractAadhar';
-import { OcrService } from '../../infrastructure/services/ocrServices';
+import { OcrService } from '../../infrastructure/services/ocr.service';
 
 export class ExtractAadharData {
   static async execute(frontBuffer: Buffer, backBuffer: Buffer) {

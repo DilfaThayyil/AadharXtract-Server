@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import { processAadhaar } from "../controllers/ocr.controller";
+import { processAadhaar } from "../controllers/OcrController";
 
 const router = Router();
 const upload = multer({ storage: multer.memoryStorage() });
