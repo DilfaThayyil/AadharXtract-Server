@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import ocrRoutes from './interfaces/routes/ocr.routes';
+import ocrRoutes from './interfaces/routes/OcrRoutes';
 import cors from "cors";
 import { BACKENDURL, FRONTENTURL, PORT } from './config/env';
 

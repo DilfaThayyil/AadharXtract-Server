@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ExtractAadharData } from '../../application/use-cases/ExtractAadharData';
 import { HttpStatusCode } from '../../utils/httpStatusCode';
-import { messageConstants } from '../../constants/messageContants';
+import { messageConstants } from '../../constants/messageConstants';
 
 export const processAadhaar = async (req: Request, res: Response): Promise<void> => {
   try {
