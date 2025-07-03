@@ -1,4 +1,4 @@
-# 🔍 Aadhaar OCR System – Backend (Google Cloud Vision API)
+# 🔍 Aadhaar OCR System Backend (Google Cloud Vision API)
 
 This is the backend server for the **Aadhaar OCR System**, built using **Node.js** and **Express**, and powered by the **Google Cloud Vision API** for highly accurate OCR (Optical Character Recognition).
 
@@ -66,43 +66,6 @@ Replace `your-google-key.json` with the actual file name of the service account 
 
 ---
 
-## 📤 API Usage
-
-### Endpoint: `POST /api/ocr`
-
-* **Content-Type:** `multipart/form-data`
-* **Fields:**
-
-  * `frontImage`: Aadhaar front image file (required)
-  * `backImage`: Aadhaar back image file (optional but recommended)
-
-### ✅ Example Request (Using Postman or Form)
-
-Send a `multipart/form-data` request with `frontImage` and `backImage` fields.
-
-### 📦 Example Response
-
-```json
-{
-  "success": true,
-  "message": "Aadhaar data extracted successfully",
-  "data": {
-    "frontData": {
-      "name": "Chauhan Parth Jatinbhai",
-      "dob": "25/03/2015",
-      "gender": "Male",
-      "aadhaarNumber": "4309 2704 1446",
-      "address": "..."
-    },
-    "backData": {
-      "address": "..."
-    }
-  }
-}
-```
-
----
-
 ## 🛡 Security Tips
 
 * ✅ Sanitize and validate file types (e.g., accept only JPG/PNG)
@@ -140,7 +103,7 @@ node_modules/
 ## 📬 Feedback & Contributions
 
 Feel free to fork this repo, open issues, or submit pull requests!
-Whether it's bug fixes, new features, or documentation updates — contributions are always welcome 🙌
+Whether it's bug fixes, new features, or documentation updates. contributions are always welcome 🙌
 
 ---
 
