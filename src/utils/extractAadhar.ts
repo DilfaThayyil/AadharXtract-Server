@@ -38,7 +38,6 @@ export const extractAadhaarDetails = (frontText: string, backText: string) => {
 
   const isNoise = (line: string) => NOISE_PATTERNS.some(pattern => pattern.test(line));
 
-  // --- Name Extraction ---
   let name = '';
   for (let i = 0; i < frontLines.length - 1; i++) {
     const current = frontLines[i];
@@ -60,7 +59,6 @@ export const extractAadhaarDetails = (frontText: string, backText: string) => {
     name = candidates[0] || '';
   }
 
-  // --- Address Extraction ---
   const personNameWords = name.toLowerCase().split(' ');
 
   const cleanBackLines = backLines

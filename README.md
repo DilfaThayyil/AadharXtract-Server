@@ -1,8 +1,9 @@
+````markdown
 # 🔍 Aadhaar OCR System – Backend (Google Cloud Vision API)
 
-This is the backend server for the **Aadhaar OCR System**, built using **Node.js** and **Express**, powered by **Google Cloud Vision API** for highly accurate OCR.
+This is the backend server for the **Aadhaar OCR System**, built using **Node.js** and **Express**, and powered by the **Google Cloud Vision API** for highly accurate OCR (Optical Character Recognition).
 
-The backend receives Aadhaar card images (front and back), processes them through Google's OCR, and returns the extracted text to the frontend.
+The backend receives Aadhaar card images (front and back), processes them through Google's OCR service, and returns the extracted text to the frontend.
 
 ---
 
@@ -10,8 +11,8 @@ The backend receives Aadhaar card images (front and back), processes them throug
 
 ✅ Accepts image uploads via a REST API  
 ✅ Uses Google Cloud Vision to extract Aadhaar details  
-✅ Sends extracted info (name, DOB, Aadhaar number, etc.) back to the frontend  
-✅ Handles file validation and errors gracefully
+✅ Sends extracted information (Name, DOB, Aadhaar number, etc.) back to the frontend  
+✅ Handles file validation, error handling, and edge cases gracefully  
 
 ---
 
@@ -21,7 +22,7 @@ The backend receives Aadhaar card images (front and back), processes them throug
 - ☁️ Google Cloud Vision API
 - 📂 Multer (for handling file uploads)
 - 🌍 CORS (cross-origin requests)
-- 🔒 dotenv (for config)
+- 🔒 dotenv (for environment configuration)
 
 ---
 
@@ -32,50 +33,120 @@ The backend receives Aadhaar card images (front and back), processes them throug
 ```bash
 git clone https://github.com/DilfaThayyil/aadharXtract-Server.git
 cd aadharXtract-Server
+````
 
-2. Install Dependencies
+### 2. Install Dependencies
+
+```bash
 npm install
 ```
-3. Set Up Your .env File
-Create a .env in the root folder:
 
-🛠 Google Cloud Setup
+### 3. Set Up Your `.env` File
 
-Go to Google Cloud Console
-Enable the Vision API
-Create a Service Account
-Generate and download the JSON key
-Place it in your project directory and reference it in your .env
+Create a `.env` file in the root directory and add the following:
 
-🧪 API Usage
+```env
+PORT=5000
+GOOGLE_APPLICATION_CREDENTIALS=./your-google-key.json
+```
 
-📤 POST /api/ocr
+Replace `your-google-key.json` with the actual file name of the service account key you downloaded.
 
-Request:
+---
 
-Content-Type: multipart/form-data
+### 🛠 Google Cloud Vision Setup
 
-Fields:
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Enable the **Vision API** for your project
+3. Create a **Service Account**
+4. Generate and download a **JSON key file**
+5. Save the file in your backend project root
+6. Set the path to this file in your `.env` as shown above
 
-frontImage: Aadhaar front image file
-backImage: Aadhaar back image file (optional but recommended)
+> ⚠️ **Important:** Never commit your key file or `.env` to version control. Add them to `.gitignore`.
 
-Response:
+---
 
+## 📤 API Usage
+
+### Endpoint: `POST /api/ocr`
+
+* **Content-Type:** `multipart/form-data`
+* **Fields:**
+
+  * `frontImage`: Aadhaar front image file (required)
+  * `backImage`: Aadhaar back image file (optional but recommended)
+
+### ✅ Example Request (Using Postman or Form)
+
+Send a `multipart/form-data` request with `frontImage` and `backImage` fields.
+
+### 📦 Example Response
+
+```json
 {
-  "frontData": { ...extractedText },
-  "backData": { ...extractedText }
+  "success": true,
+  "message": "Aadhaar data extracted successfully",
+  "data": {
+    "frontData": {
+      "name": "Chauhan Parth Jatinbhai",
+      "dob": "25/03/2015",
+      "gender": "Male",
+      "aadhaarNumber": "4309 2704 1446",
+      "address": "..."
+    },
+    "backData": {
+      "address": "..." // If available
+    }
+  }
 }
+```
 
-Frontend must send valid image data via multipart/form-data
-Make sure your Google Cloud credentials are not pushed to GitHub!
+---
 
-🛡 Security Tips
+## 🛡 Security Tips
 
-Sanitize file names & validate file types
-Limit file size uploads using multer
-Always keep .env and service account JSON in .gitignore
+* ✅ Sanitize and validate file types (e.g., accept only JPG/PNG)
+* ✅ Limit file size using Multer (e.g., max 5MB)
+* ✅ Use `.gitignore` to prevent `.env` and credential files from being committed
 
-📬 Feedback & Contributions
+---
 
-Feel free to fork, open issues, or submit PRs! Whether it's bug fixes, new features, or documentation updates — it's all welcome 🙌
+## 🧪 Testing the Server
+
+To start the development server:
+
+```bash
+npm run dev
+```
+
+Or, if you don’t have nodemon installed:
+
+```bash
+node index.js
+```
+
+---
+
+## 📁 .gitignore Example
+
+```gitignore
+node_modules/
+.env
+*.json
+```
+
+---
+
+## 📬 Feedback & Contributions
+
+Feel free to fork this repo, open issues, or submit pull requests!
+Whether it's bug fixes, new features, or documentation updates — contributions are always welcome 🙌
+
+---
+
+## 📄 License
+
+MIT License © 2025 [Dilfa Thayyil](https://github.com/DilfaThayyil)
+
+```
