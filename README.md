@@ -1,4 +1,3 @@
-````markdown
 # 🔍 Aadhaar OCR System – Backend (Google Cloud Vision API)
 
 This is the backend server for the **Aadhaar OCR System**, built using **Node.js** and **Express**, and powered by the **Google Cloud Vision API** for highly accurate OCR (Optical Character Recognition).
@@ -9,20 +8,20 @@ The backend receives Aadhaar card images (front and back), processes them throug
 
 ## ⚙️ What It Does
 
-✅ Accepts image uploads via a REST API  
-✅ Uses Google Cloud Vision to extract Aadhaar details  
-✅ Sends extracted information (Name, DOB, Aadhaar number, etc.) back to the frontend  
-✅ Handles file validation, error handling, and edge cases gracefully  
+✅ Accepts image uploads via a REST API
+✅ Uses Google Cloud Vision to extract Aadhaar details
+✅ Sends extracted information (Name, DOB, Aadhaar number, etc.) back to the frontend
+✅ Handles file validation, error handling, and edge cases gracefully
 
 ---
 
 ## 🧰 Tech Stack
 
-- 🟢 Node.js + Express
-- ☁️ Google Cloud Vision API
-- 📂 Multer (for handling file uploads)
-- 🌍 CORS (cross-origin requests)
-- 🔒 dotenv (for environment configuration)
+* 🟢 Node.js + Express
+* ☁️ Google Cloud Vision API
+* 📂 Multer (for handling file uploads)
+* 🌍 CORS (cross-origin requests)
+* 🔒 dotenv (for environment configuration)
 
 ---
 
@@ -33,7 +32,7 @@ The backend receives Aadhaar card images (front and back), processes them throug
 ```bash
 git clone https://github.com/DilfaThayyil/aadharXtract-Server.git
 cd aadharXtract-Server
-````
+```
 
 ### 2. Install Dependencies
 
@@ -96,7 +95,7 @@ Send a `multipart/form-data` request with `frontImage` and `backImage` fields.
       "address": "..."
     },
     "backData": {
-      "address": "..." // If available
+      "address": "..."
     }
   }
 }
@@ -148,5 +147,3 @@ Whether it's bug fixes, new features, or documentation updates — contributions
 ## 📄 License
 
 MIT License © 2025 [Dilfa Thayyil](https://github.com/DilfaThayyil)
-
-```
