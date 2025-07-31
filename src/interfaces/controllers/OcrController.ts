@@ -19,11 +19,10 @@ export const processAadhaar = async (req: Request, res: Response): Promise<void>
       message: messageConstants.SUCCESS,
       data: result,
     });
-  } catch (error) {
-    console.error(error);
-    res.status(HttpStatusCode.INTERNAL_SERVER_ERROR).json({
+  } catch (error:any) {
+    res.status(HttpStatusCode.BAD_REQUEST).json({
       success: false,
-      message: messageConstants.FAILURE,
+      message: error.message||messageConstants.FAILURE,
     });
   }
 };
